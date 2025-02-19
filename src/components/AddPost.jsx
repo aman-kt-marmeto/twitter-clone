@@ -4,44 +4,49 @@ import profilePic from "../assets/0x0.jpg";
 import useAppContext from "../context/AppContextHook";
 
 export default function AddPost({ userProfileImage }) {
-    const { allPosts, setAllPosts, contextPost, setContextPost } = useAppContext();
-
-    const ref = useRef();
+    const { setAllPosts, setContextPost } = useAppContext();
+  
+    const ref = useRef(null);
     const [postData, setPostData] = useState("");
     const [file, setFile] = useState(null);
-
+  
     const submitHandler = (e) => {
         e.preventDefault();
+        if (!postData.trim()) return; // Prevent adding empty posts
 
         const newPost = {
             id: Date.now(), // Unique ID
             userProfile: profilePic,
             name: "Elon Musk",
             userId: "@elonX",
-            postContent: postData.trim(),
-            postImage: file || "",
+            postContent: postData,
+            postImage: file,
             likeCount: 0,
             commentCount: 0,
-            comments: [
-                { user: "@mike_45", comment: "Great thoughts!" },
-                { user: "@lisa_92", comment: "Much needed today!" }
-            ],
+            comments: [],
         };
 
-        // Reset input fields
+        // Append the new post while keeping the old ones
+        setAllPosts(prevPosts => [newPost, ...prevPosts]);
+        setContextPost(prevPosts => [newPost, ...prevPosts]);
+
+        // Reset fields
         setPostData("");
         setFile(null);
-        ref.current.classList.add("preview-hidden");
-
-        // Update posts
-        setAllPosts((prev) => [newPost, ...prev]);
-        setContextPost((prev) => [newPost, ...prev]);
+        if (ref.current) {
+            ref.current.classList.add("preview-hidden");
+        }
     };
 
     const fileHandler = (e) => {
-        setFile(URL.createObjectURL(e.target.files[0]));
-        ref.current.removeAttribute("hidden");
-        ref.current.classList.remove("preview-hidden");
+        if (e.target.files.length > 0) {
+            const imageURL = URL.createObjectURL(e.target.files[0]);
+            setFile(imageURL);
+            if (ref.current) {
+                ref.current.removeAttribute("hidden");
+                ref.current.classList.remove("preview-hidden");
+            }
+        }
     };
 
     return (
@@ -58,24 +63,27 @@ export default function AddPost({ userProfileImage }) {
                         onChange={(e) => setPostData(e.target.value)}
                         value={postData}
                     ></textarea>
-                    {file && <img className="post-img" id="preview-image" src={file} alt="preview" ref={ref} />}
+
+                    {/* Image Preview */}
+                     <img className="post-img preview-hidden" id="preview-image" src={file} alt="Preview" ref={ref} />
+
                     <div className="other-inputes">
                         <div>
                             <label htmlFor="post-image-input">
                                 <MediaSvg />
-                                <input type="file" id="post-image-input" accept="image/png,image/jpeg" hidden onChange={fileHandler} />
+                                <input
+                                    type="file"
+                                    id="post-image-input"
+                                    accept="image/png, image/jpeg"
+                                    hidden
+                                    onChange={fileHandler}
+                                />
                             </label>
                             <label htmlFor="emoji">
                                 <EmojiSvg />
                             </label>
                         </div>
-                        <input 
-                            type="submit" 
-                            id="submit" 
-                            value="Post" 
-                            disabled={!postData.trim() && !file} 
-                            style={{ opacity: (!postData.trim() && !file) ? 0.5 : 1, cursor: (!postData.trim() && !file) ? "not-allowed" : "pointer" }}
-                        />
+                        <input type="submit" id="submit" value="Post" disabled={!postData.trim()} />
                     </div>
                 </form>
             </div>

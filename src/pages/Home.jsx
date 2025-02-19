@@ -12,11 +12,15 @@ import "./Search.css";
 import "./AddPost.css";
 
 export default function Home() {
-    const { contextPost, setContextPost, setAllPosts } = useAppContext();
+    const { contextPost, setContextPost, setAllPosts, allPosts } = useAppContext();
 
     useEffect(() => {
         console.log(contextPost);
     }, [contextPost]);
+
+    useEffect(()=>{
+        setContextPost(allPosts)
+    },[allPosts])
 
     useEffect(() => {
         setContextPost(data);
