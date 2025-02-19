@@ -27,12 +27,17 @@ export default function Home() {
         <div className="home-main-container">
             <div className="post-container">
                 <AddPost userProfileImage={profilePic} />
-                {contextPost.map((post, index) => (
-                    <div key={index} className="post-item main-container-padding border-main-items ajc-top-bn">
-                        <PostCard post={post} />
-                    </div>
-                ))}
+                {contextPost.length > 0 ? (
+                    contextPost.map((post, index) => (
+                        <div key={index} className="post-item main-container-padding border-main-items ajc-top-bn">
+                            <PostCard post={post} />
+                        </div>
+                    ))
+                ) : (
+                    <div className="no-posts-found">No Posts Found</div>
+                )}
             </div>
+
             <aside className="home-aside-container">
                 <div className="aside-inner-right">
                     <SearchComponent />
