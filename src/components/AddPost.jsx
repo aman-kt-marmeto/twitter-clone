@@ -26,7 +26,7 @@ export default function AddPost({userProfileImage}) {
     ]
 }
 
-  const {contextPost, setContextPost} = useAppContext()
+  const {allPosts, setAllPosts, contextPost, setContextPost} = useAppContext()
   
   const ref = useRef();
   const [postData, setPostData] = useState("")
@@ -41,10 +41,15 @@ export default function AddPost({userProfileImage}) {
     data.postContent = postData
     data.postImage = file
     data.id = data.id + 100
+    setAllPosts((prev) =>{
+      return [data, ...prev]
+    })
+
     setContextPost((prev) =>{
       return [data, ...prev]
     })
-    console.log(contextPost)
+
+    console.log(allPosts)
   }
 
 
