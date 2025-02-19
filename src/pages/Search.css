@@ -1,0 +1,32 @@
+.search-component{
+    display: flex;
+    border: 1px solid rgb(113, 118, 123);
+    padding: 0 12px;
+    border-radius: 9999px;
+    margin-top: 12px;
+    max-width: 320px;
+    width: 100%;
+}
+
+.search-component .search-svg{
+    width: 16px;
+    height: auto;
+    fill: rgb(113, 118, 123);
+}
+
+.search-component .cross-svg{
+    width: 22px;
+}
+
+.search-component input{
+    outline: none;
+    background: none;
+    border: none;
+    width: 100%;
+    appearance: none;
+    line-height: 16px;
+    font-size: 14px;
+    padding-right: 16px;
+    padding-left: 4px;
+    height: 40px;
+}

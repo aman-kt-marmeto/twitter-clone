@@ -1,0 +1,62 @@
+.add-post-container{
+    display: flex;
+    gap: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.add-post-container .input{
+    flex-grow: 1;
+}
+
+.add-post-container textarea{
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    padding-top: 12px;
+    font-size: 20px;
+    resize: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.other-inputes{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.other-inputes input{
+    background-color: var(--primary-color);
+    border-radius: 9999px;
+    outline: none;
+    border: none;
+}
+
+.other-inputes svg{
+    fill: rgb(29, 155, 240);
+    width: 20px;
+    height: 20px;
+}
+
+.user-profile-image{
+    padding-top: 5px;
+}
+
+.user-profile-image img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+#preview-image{
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 12px;
+    border-radius: 12px;
+}
+
+.preview-hidden{
+    display: none !important;
+}

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 8,
+        "userProfile": "https://play-lh.googleusercontent.com/3ha-TO-wWZA8IofnlU6tWsYJiBCYbqs8hvhB6BQnct1PgsYpAZhCPMKoYggHOX9z-1qM=w526-h296-rw",
+        "name": "Karan",
+        "userId": "@karan_23",
+        "postContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien vel augue bibendum maximus. #Success #WorkHard #Hustle",
+        "postImage": "https://www.neuronworks.co.id/wp-content/uploads/2024/11/tri-tue-nhan-tao-ai-la-gi-1-678617a15353f.webp",
+        "likeCount": 120,
+        "commentCount": 2,
+        "comments": [
+            {
+                "user": "@rahul_45",
+                "comment": "This is fire! 🔥"
+            },
+            {
+                "user": "@sneha_90",
+                "comment": "Keep hustling! 💪"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "userProfile": "https://wallpapers.com/images/featured/cute-anime-profile-pictures-k6h3uqxn6ei77kgl.jpg",
+        "name": "Neha",
+        "userId": "@neha2025",
+        "postContent": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. #Motivation #DreamBig #Believe",
+        "postImage": "https://static.vecteezy.com/system/resources/previews/036/123/322/large_2x/ai-generated-complex-machine-learning-concept-generate-ai-photo.jpg",
+        "likeCount": 140,
+        "commentCount": 2,
+        "comments": [
+            {
+                "user": "@ananya_07",
+                "comment": "So motivating!"
+            },
+            {
+                "user": "@rohit_x",
+                "comment": "Love this energy! ✨"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "userProfile": "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs3/294959692/original/4208e7b966e6ed599d33bee2664bd420146c14d7/create-a-cool-anime-profile-picture-for-you.png",
+        "name": "Vikram",
+        "userId": "@vikram_404",
+        "postContent": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. #Tech #AI #Innovation",
+        "postImage": "https://endertech.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Ffswbkokbwqb5%2F4vBAsCbQ9ITwI7Ym0MtXgY%2F96c4ec25d505f1b702f46a5a3d9dbe77%2FAI-Article-00.png&w=3840&q=75",
+        "likeCount": 160,
+        "commentCount": 2,
+        "comments": [
+            {
+                "user": "@kavya_tech",
+                "comment": "Tech is the future!"
+            },
+            {
+                "user": "@manoj_33",
+                "comment": "AI is evolving fast! 🚀"
+            }
+        ]
+    }
+]
