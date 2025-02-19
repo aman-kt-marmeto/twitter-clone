@@ -1,28 +1,39 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import useAppContext from "../context/AppContextHook";
 
 export default function TagList() {
     const { tags, contextPost, setContextPost, allPosts } = useAppContext();
-    const [selectedTag, setSelectedTag] = useState("All"); // Default selected is "All"
+    const navigate = useNavigate();
+    const location = useLocation();
+    
+    const urlParams = new URLSearchParams(location.search);
+    const initialTag = urlParams.get("tag") || "All";
+    const [selectedTag, setSelectedTag] = useState(initialTag);
 
     useEffect(() => {
         console.log("Selected Tag:", selectedTag);
-    }, [selectedTag]);
+
+        const queryParams = new URLSearchParams();
+        if (selectedTag !== "All") {
+            queryParams.set("tag", selectedTag);
+        }
+        navigate(`?${queryParams.toString()}`, { replace: true });
+
+        if (selectedTag === "All") {
+            setContextPost(allPosts);
+        } else {
+            const filtered = allPosts.filter(post => post.postContent.includes(selectedTag));
+            setContextPost(filtered);
+        }
+    }, [selectedTag, navigate, allPosts, setContextPost]);
 
     const handleTagClick = (tag) => {
         setSelectedTag(tag);
-
-        if (tag === "All") {
-            setContextPost(allPosts); // Reset to show all posts
-        } else {
-            const filtered = allPosts.filter(post => post.postContent.includes(tag));
-            setContextPost(filtered);
-        }
     };
 
     return (
         <div className="tags-container home-aside-container">
-            {/* "All" tag for resetting filter */}
             <span
                 className={`tag ${selectedTag === "All" ? "selected" : ""}`}
                 onClick={() => handleTagClick("All")}
@@ -30,7 +41,6 @@ export default function TagList() {
                 All
             </span>
 
-            {/* Display other tags */}
             {tags.length > 0 &&
                 tags.map((tag, index) => (
                     <span
