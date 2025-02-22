@@ -59,10 +59,15 @@
     fill: var(--text-secondary-color);
 }
 
-.likes-nd-comments > div{
+.likes-nd-comments > div, .likes-nd-comments > div > div{
     display: flex;
     align-items: center;
     gap: 5px;
+    cursor: pointer;
+}
+
+.liked-post svg{
+    fill: red;
 }
 
 .hashtag{

@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import useAppContext from "../context/AppContextHook";
 
 export default function TagList() {
-    const { tags, contextPost, setContextPost, allPosts } = useAppContext();
+    const { tags, setContextPost, allPosts } = useAppContext();
     const navigate = useNavigate();
     const location = useLocation();
     
@@ -12,8 +12,6 @@ export default function TagList() {
     const [selectedTag, setSelectedTag] = useState(initialTag);
 
     useEffect(() => {
-        console.log("Selected Tag:", selectedTag);
-
         const queryParams = new URLSearchParams();
         if (selectedTag !== "All") {
             queryParams.set("tag", selectedTag);

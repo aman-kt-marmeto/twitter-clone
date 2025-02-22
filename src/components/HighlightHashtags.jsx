@@ -28,7 +28,6 @@ const HighlightHashtags = ({ text }) => {
         // Update the tags in context with the new unique hashtags
         setTags(prev => [...new Set([...prev,...updatedTags])]); // Convert Set back to an array to update the context
     }, [contextPost]);
-    console.log(tags)
 
     return <p className="post-content">{renderTextWithHashtags(text)}</p>;
 };

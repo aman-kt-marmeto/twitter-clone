@@ -50,6 +50,50 @@
     font-weight: 500;
 }
 
+.skeleton-post {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.skeleton-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    animation: pulse 1.5s infinite;
+}
+
+.skeleton-content {
+    flex: 1;
+}
+
+.skeleton-text {
+    height: 12px;
+    background: #e0e0e0;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    animation: pulse 1.5s infinite;
+}
+
+.image-skeleton{
+    height: 240px;
+}
+
+.skeleton-text-short {
+    height: 12px;
+    background: #e0e0e0;
+    width: 70%;
+    border-radius: 4px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: .6; }
+    50% { opacity: 1; }
+    100% { opacity: .6; }
+}
+
 @media screen and (max-width:988px) {
     .home-aside-container{
         display: none;

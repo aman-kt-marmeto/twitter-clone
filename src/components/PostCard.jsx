@@ -1,8 +1,25 @@
+import useAppContext from "../context/AppContextHook";
 import HighlightHashtags from "./HighlightHashtags";
 import { BookmarkSvg, CommentSvg, CopylinkSvg, EngagementSvg, LikeSvg, RepostSvg } from "./Svg";
 
 
 export default function PostCard({post}) {
+  const { setAllPosts } = useAppContext();
+
+  const handleLike = () => {
+    setAllPosts(prevPosts => {
+      return prevPosts.map(p => {
+        if (p.id === post.id) {
+          return {
+            ...p,
+            likeCount: p.likeCount + 1
+          };
+        }
+        return p;
+      });
+    });
+  };
+
   return (
     <div className='post-card'>
       <div className="post-profile-image">
@@ -29,7 +46,13 @@ export default function PostCard({post}) {
             <RepostSvg/><span>20</span>
           </div>
           <div className="likes">
-            <LikeSvg/> <span>{post.likeCount}</span>
+            <div 
+              onClick={handleLike} 
+              className={post.likeCount > 0 ? 'liked-post' : 'not-liked-post'}
+            >
+              <LikeSvg />
+              <span>{post.likeCount}</span>
+            </div>
           </div>
           <div className="engagement">
             <EngagementSvg/><span>1M</span>

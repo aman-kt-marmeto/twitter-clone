@@ -5,11 +5,11 @@ import useAppContext from "../context/AppContextHook";
 
 export default function AddPost({ userProfileImage }) {
     const { setAllPosts, setContextPost } = useAppContext();
-  
+
     const ref = useRef(null);
     const [postData, setPostData] = useState("");
     const [file, setFile] = useState(null);
-  
+
     const submitHandler = (e) => {
         e.preventDefault();
         if (!postData.trim()) return; // Prevent adding empty posts
@@ -65,7 +65,7 @@ export default function AddPost({ userProfileImage }) {
                     ></textarea>
 
                     {/* Image Preview */}
-                     <img className="post-img preview-hidden" id="preview-image" src={file} alt="Preview" ref={ref} />
+                    <img className="post-img preview-hidden" id="preview-image" src={file} alt="Preview" ref={ref} />
 
                     <div className="other-inputes">
                         <div>
